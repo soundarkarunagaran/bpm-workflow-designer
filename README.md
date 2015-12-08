@@ -1,8 +1,16 @@
  
-weichuang
+bpm workflow designer
 =========
 
 BPM workflow designer 
+
+## develop 
+
+```shell
+ > npm install
+ > gulp 
+```
+
 
 ## tech 
 

@@ -1,21 +1,18 @@
 {
-  "name": "weichuang-frontend",
+  "name": "bpm-workflow-designer",
   "version": "1.0.0",
-  "description": "weichuang =========",
+  "description": "bpm workflow designer , flow designer",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/6174/weichuang-frontend.git"
+    "url": "https://github.com/6174/bpm-workflow-designer.git"
   },
   "author": "6174",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/6174/weichuang/issues"
+    "url": "https://github.com/6174/bpm-workflow-designer/issues"
   },
-  "homepage": "https://github.com/6174/weichuang",
+  "homepage": "https://github.com/6174/bpm-workflow-designer",
   "devDependencies": {
     "babelify": "^7.2.0",
     "del": "^2.1.0",
