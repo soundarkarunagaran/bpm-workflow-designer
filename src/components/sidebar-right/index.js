@@ -5,8 +5,8 @@
 var Sidebar = React.createClass({
 	render() {
 		return (
-			<sidebar className="app-sidebar-left">
-				sidebar-left
+			<sidebar className="app-sidebar-right">
+				sidebar-right
 			</sidebar>
 		)
 	}
