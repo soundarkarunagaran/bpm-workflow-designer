@@ -1,0 +1,44 @@
+{
+  "name": "weichuang-frontend",
+  "version": "1.0.0",
+  "description": "weichuang =========",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/6174/weichuang-frontend.git"
+  },
+  "author": "6174",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/6174/weichuang/issues"
+  },
+  "homepage": "https://github.com/6174/weichuang",
+  "devDependencies": {
+    "babelify": "^7.2.0",
+    "del": "^2.1.0",
+    "gulp": "~3.8.10",
+    "gulp-browserify": "~0.5.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-less": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-react": "^3.0.1",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "^1.0.2",
+    "html2js-browserify": "0.0.2",
+    "layout": "~2.0.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "connect-rest": "^2.0.5",
+    "reactify": "^1.1.0"
+  },
+  "dependencies": {
+    "antd": "^0.10.4",
+    "fluxxor": "^1.7.3",
+    "marked": "^0.3.5",
+    "react": "^0.14.3",
+    "tree-model": "^1.0.4"
+  }
+}
