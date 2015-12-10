@@ -277,12 +277,68 @@
   box-sizing: border-box;
   behavior: url(//g.tbcdn.cn/mui/flex/3.0.7/boxsizing.htc);
 }
+.mbtn {
+  cursor: pointer;
+  display: inline-block;
+  color: #6A6B8A;
+  padding: 3px 10px;
+  border: solid 1px #6A6B8A;
+}
+.mbtn.mbtn-circle {
+  border-radius: 30px;
+}
+.mbtn.mbtn-icon-only {
+  font-size: 20px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.mbtn.mbtn-icon-only i {
+  position: relative;
+  top: -1px;
+}
+.mbtn.mbtn-primary {
+  background: #6A6B8A;
+  color: white;
+}
 .app-header {
   border-bottom: solid 1px whitesmoke;
 }
 .app-header .brand-logo-container {
   color: white;
   background: #30D0C6;
+}
+.app-header .menu-container .menu-list {
+  padding: 16px 20px;
+}
+.app-header .menu-container .menu-list .menu-group {
+  display: inline-block;
+}
+.app-header .menu-container .menu-list .menu-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.app-header .menu-container .menu-list .menu-item.icon-up {
+  vertical-align: bottom;
+  text-align: center;
+  line-height: 14px;
+  height: 32px;
+  font-size: 19px;
+  color: #6A6B8A;
+}
+.app-header .menu-container .menu-list .menu-item.icon-up label {
+  color: #999;
+  font-size: 12px;
+  display: inline-block;
+  transform: scale(0.8);
+  margin-top: 4px;
+  margin-right: 2px;
+}
+.app-header .menu-container .menu-list .menu-gap {
+  display: inline-block;
+  margin-right: 30px;
 }
 html,
 body {
