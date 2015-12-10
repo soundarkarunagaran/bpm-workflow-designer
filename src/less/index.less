@@ -1,5 +1,8 @@
+
+@import "./components/btn.less";
 @import './base/flex-block.less';
 @import './components/header.less';
+@import './components/tree.less';
 
 html, body {
 	height: 100%;
@@ -62,12 +65,15 @@ hr {
 			bottom: 0;
 		}
 		.app-sidebar-right {
+			@bg-color: #415B72; 
+			@block-header-active-color: #305669;
+			@block-header-color: #415175;
 			position: absolute;
 			top: 0;
 			right: 0;
 			bottom: 0;
 			width: @sidebar-width;
-			background: @brand-primary-bg;
+			background: @bg-color;
 		}
 	}
 }

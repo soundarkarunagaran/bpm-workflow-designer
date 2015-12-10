@@ -1,0 +1,31 @@
+@mbtn-primary: @brand-primary-bg;
+.mbtn {
+	cursor: pointer;
+	display: inline-block;
+	color: @mbtn-primary;
+	padding: 3px 10px;
+	border: solid 1px @mbtn-primary;
+
+	&.mbtn-circle {
+		border-radius: 30px;
+	}
+
+	&.mbtn-icon-only{
+		@size: 32px;
+		font-size: 20px;
+		padding: 0;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		i {
+			position: relative;
+			top: -1px;
+		}
+	}
+
+	&.mbtn-primary {
+		background: @mbtn-primary;
+		color: white;
+	}
+}

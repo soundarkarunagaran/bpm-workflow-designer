@@ -1,7 +1,7 @@
 /**
  * playground
  */
-
+var React = require('react')
 var Playground = React.createClass({
 	render() {
 		return (

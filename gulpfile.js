@@ -1,12 +1,18 @@
 var gulp = require('gulp')
-var livereload = require('gulp-livereload')
-var browserify = require('gulp-browserify');
+
 var rename = require('gulp-rename')
 var less = require('gulp-less')
-var connect = require('gulp-connect')
 var rest = require('connect-rest')
 var del = require("del")
-var sourcemaps = require("gulp-sourcemaps");
+var path = require('path')
+
+var livereload = require('gulp-livereload')
+var connect = require('gulp-connect')
+
+var browserify = require('browserify')
+var babelify = require('babelify')
+var sourcemaps = require("gulp-sourcemaps")
+var source = require('vinyl-source-stream')
 
 /**
  * [src soure code path configuration]
@@ -98,27 +104,22 @@ gulp.task('styles', function() {
  * @return {[type]}   [description]
  */
 gulp.task('scripts', function() {
-
-    var stream = gulp.src('./src/app.js', {
-        read: false
-    });
-
-    stream
-    .pipe(browserify({
-        debug: true,
-        transform: ['reactify']
-    }))
-    .on('prebundle', function(bundle) {
-    	bundle.external('common');
+    var stream = browserify({
+      entries: './src/app.js',
+      debug: true
     })
     .on('error', function(err) {
-        console.log('error', err);
+      console.log(err)
     })
+    .transform(babelify.configure({
+      sourceMapRelative: path.resolve(__dirname, 'src')
+    }))
+    .bundle()
+    .pipe(source('bundle.js'))
     .pipe(rename('app.js'))
     .pipe(gulp.dest('./build/scripts/'))
     .on("end", reload)
-
-    return stream;
+    return 
 })
 
 /**

@@ -1,7 +1,8 @@
 /**
  * App entry
  */
-
+var React = require('react')
+var ReactDOM = require('react-dom')
 var Header = require('./components/header')
 var SidebarLeft = require('./components/sidebar-left')
 var Playground = require('./components/playground')
@@ -25,4 +26,4 @@ var App = React.createClass({
 	}
 })
 
-React.render(<App/>, document.getElementById('App'))
+ReactDOM.render(<App/>, document.getElementById('App'))

@@ -1,7 +1,7 @@
 /**
  * Top Header
  */
-
+var React = require('react')
 var Header = React.createClass({
 	render() {
 		return (

@@ -1,7 +1,7 @@
 /**
  * sidebar left
  */
-
+var React = require('react')
 var Sidebar = React.createClass({
 	render() {
 		return (
