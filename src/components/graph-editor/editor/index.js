@@ -45,22 +45,51 @@ Diagram.prototype._init = function(config) {
 		return mxUtils.error('浏览器不支持!', 200, false);
 	} 
 
-	var editor = new mxEditor(config);
+	/**
+	 * [全局设置]
+	 * @type {Number}
+	 */
+	mxConstants.MIN_HOTSPOT_SIZE = 16;
+	mxConstants.DEFAULT_HOTSPOT = 1;
+
+	/** 启用参考线 */
+	mxGraphHandler.prototype.guidesEnabled = true;
+
+	/** 托转同时按下Alt禁用参考线 */
+    mxGuide.prototype.isEnabledForEvent = function(evt){
+		return !mxEvent.isAltDown(evt);
+	};
+
+	/** 启用吸附到连线末端 */
+	mxEdgeHandler.prototype.snapToTerminals = true;
+
+
+	/**
+	 * [创建容器]
+	 * @type {mxEditor}
+	 */
+	var editor = this.editor = new mxEditor(config);
 	editor.setGraphContainer(container);
-	var graph = editor.graph;
-	var graphModel = graph.getModel();
+	var graph = this.graph = editor.graph;
+	var graphModel = this.graphModel = graph.getModel();
 
-	this.editor = editor;
-	this.graph = graph;
-	this.graphModel = graphModel;
-
+	/** 可编辑 */
+	graph.setEnabled(true);
+	/** 启用拖放 */
+	graph.setDropEnabled(true);
+	/** 启用画布拖动 */
 	graph.setPanning(true);
-
 	graph.panningHandler.useLeftButtonForPanning = true;
-
-	// Disables basic selection and cell handling
-	graph.setEnabled(false);
+	/** 禁用tooltips */
 	graph.setTooltips(false);
+
+	/** 不允许无终点边 */
+	graph.setAllowDanglingEdges(false);
+
+	/** 连接指示图 */
+	graph.connectionHandler.getConnectImage = function(state){
+		return new mxImage('assets/images/connector.gif', 16, 16);
+	};
 
 	graph.isCellFoldable = function(cell){
 		return false;

@@ -13,6 +13,16 @@ var GraphEditor = React.createClass({
 			container: $dom
 		})
 		editor.render()
+
+		/**
+		 * 1. 初始化 添加 节点拖拽事件 
+		 * 2. 缩略图 逻辑 
+		 * 3. 根据工具栏 操作 添加 actions
+		 * 4. 
+		 */
+	},
+	showModal() {
+		// 模态框显示
 	},
 	render() {
 		return (
