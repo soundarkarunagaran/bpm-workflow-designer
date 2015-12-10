@@ -6,6 +6,8 @@
 	padding: 3px 10px;
 	border: solid 1px @mbtn-primary;
 
+	@small-size: 20px;
+
 	&.mbtn-circle {
 		border-radius: 30px;
 	}
@@ -22,10 +24,19 @@
 			position: relative;
 			top: -1px;
 		}
+		&.mbtn-small {
+			line-height: @small-size;
+		}
 	}
 
 	&.mbtn-primary {
 		background: @mbtn-primary;
 		color: white;
+	}
+
+	&.mbtn-small {
+		font-size: 12px;
+		width: @small-size;
+		height: @small-size;	
 	}
 }

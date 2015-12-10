@@ -11,7 +11,7 @@ var Sidebar = React.createClass({
 	render() {
 		return (
 			<sidebar className="app-sidebar-left">
-				<div className="menu-block">
+				<div className="menu-block ">
 					<div className="menu-block-title">
 						流程列表
 					</div>
@@ -19,15 +19,28 @@ var Sidebar = React.createClass({
 						<FlowList />
 					</div>
 				</div>
+				<div className="menu-block">
+					<div className="menu-block-title">
+						控件（Stencil）
+					</div>
+					<div className="menu-block-content">
+						<Stencils/>
+					</div>
+				</div>
 			</sidebar>
 		)
 	}
 })
 
+/**
+ * [Flowlist description]
+ * @param  {[type]} {	render( [description]
+ * @return {[type]}            [description]
+ */
 var FlowList = React.createClass({
 	render() {
 		return (
-			<div className="mtree">
+			<div className="flow-list">
 				<Tree defaultExpandAll={false}
 		          openAnimation={animation}>
 		      <TreeNode title="parent 1" key="p1">
@@ -46,6 +59,38 @@ var FlowList = React.createClass({
 	}
 })
 
+/**
+ * [Stencils description]
+ * @param  {[type]} {	render( [description]
+ * @return {[type]}            [description]
+ */
+var Stencils = React.createClass({
+	render() {
+		return (
+			<div className="stencils">
+				<div className="stencil-group">
+					<div className="group-name">  
+						<a className="mbtn mbtn-circle mbtn-icon-only mbtn-small">
+							<i className="fa fa-minus"></i>
+						</a>
+						基础组件
+					</div>
+					<div className="stencil-list"></div>
+				</div>
+				<div className="stencil-group">
+					<div className="group-name">
+						<a className="mbtn mbtn-circle mbtn-icon-only mbtn-small">
+							<i className="fa fa-plus"></i>
+						</a>
+						业务组件
+					</div>
+					<div className="stencil-list"></div>
+				</div>
+			</div>
+		)
+	}
+})
+
 function enter(node, done) {
     let ok = false;
 
@@ -57,7 +102,7 @@ function enter(node, done) {
     }
     node.style.display = 'none';
     velocity(node, 'slideDown', {
-        duration: 300,
+        duration: 100,
         complete: complete,
     });
     return {
@@ -70,17 +115,13 @@ function enter(node, done) {
 }
 const animation = {
     enter(node) {
-            console.log('enter', node);
         return enter.apply(this, arguments);
     },
     appear(node) {
-        console.log('appear', node);
         return enter.apply(this, arguments);
     },
     leave(node, done) {
-        console.log('leave', node);
         let ok = false;
-
         function complete() {
             if (!ok) {
                 ok = 1;
@@ -89,7 +130,7 @@ const animation = {
         }
         node.style.display = 'block';
         velocity(node, 'slideUp', {
-            duration: 300,
+            duration: 100,
             complete: complete,
         });
         return {

@@ -1,0 +1,66 @@
+/**
+ * app-sidebar-left
+ */
+.app-sidebar-left {
+	@padding-horizontal: 15px;
+	@padding-vertical: 6px;
+	@default-padding: @padding-vertical @padding-horizontal;
+	color: white;
+	font-size: 12px;
+	.ant-tree li a {
+		color: white;
+	}
+	a.ant-tree-node-selected {
+		background: #5E5F7A;
+	}
+	.ant-tree li span.ant-tree-switcher.ant-tree-roots_close:after, 
+	.ant-tree li span.ant-tree-switcher.ant-tree-center_close:after, 
+	.ant-tree li span.ant-tree-switcher.ant-tree-bottom_close:after, 
+	.ant-tree li span.ant-tree-switcher.ant-tree-noline_close:after ,
+	.ant-tree li span.ant-tree-switcher.ant-tree-roots_open:after, 
+	.ant-tree li span.ant-tree-switcher.ant-tree-center_open:after, 
+	.ant-tree li span.ant-tree-switcher.ant-tree-bottom_open:after, 
+	.ant-tree li span.ant-tree-switcher.ant-tree-noline_open:after{
+		color: white;
+	}
+	.ant-tree-child-tree-open {
+		position: relative;
+		&:before {
+			position: absolute;
+			content: '';
+			height: 100%;
+			width: 1px;
+			border-left: dashed 1px #595973;
+			left: 6px;
+		}
+	}
+
+	.menu-block {
+		.menu-block-title {
+			background: @brand-primary-bg-dark;
+			padding: @default-padding;
+		}
+	}
+	
+	.flow-list {
+		height: 300px;
+		overflow-y: scroll;
+	}
+
+	.stencils {
+		.mbtn {
+			color: white;
+			margin-right: 10px;
+			&:hover {
+				color: white;
+			}
+		}
+		.stencil-group {
+			.group-name {
+				padding: @default-padding;
+				background: #434669;
+			}
+		}
+	}
+
+}
