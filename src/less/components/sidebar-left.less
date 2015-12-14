@@ -36,17 +36,22 @@
 	}
 
 	.menu-block {
+		position: relative;
+		height: 50%;
 		.menu-block-title {
 			background: @brand-primary-bg-dark;
 			padding: @default-padding;
 		}
+		.menu-block-content {
+			position: absolute;
+			top: 30px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			overflow-y: scroll;
+		}
 	}
 	
-	.flow-list {
-		height: 300px;
-		overflow-y: scroll;
-	}
-
 	.stencils {
 		.mbtn {
 			color: white;
@@ -59,6 +64,12 @@
 			.group-name {
 				padding: @default-padding;
 				background: #434669;
+			}
+			.stencil-item {
+				width: 79px;
+				text-align: center;
+				display: inline-block; 
+				margin: 8px 0;	
 			}
 		}
 	}

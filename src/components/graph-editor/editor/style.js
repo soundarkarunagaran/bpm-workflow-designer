@@ -117,12 +117,12 @@ function configureStylesheet(graph) {
     style[mxConstants.STYLE_HORIZONTAL] = true;
     style[mxConstants.STYLE_ARCSIZE] = 55;
     style[mxConstants.STYLE_STROKECOLOR] = STATE_STYLE.TODO.stroke;
-    style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_LEFT;
+    // style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_LEFT;
     style[mxConstants.STYLE_VERTICAL_ALIGN] = 'middle';
     delete style[mxConstants.STYLE_STARTSIZE];
     style[mxConstants.STYLE_LABEL_BACKGROUNDCOLOR] = 'none';
     graph.getStylesheet().putCellStyle('process', style);
-
+    
     /**
      * state style
      * @type {[type]}
@@ -187,11 +187,10 @@ function configureStylesheet(graph) {
      * @type {[type]}
      */
     style = graph.stylesheet.getDefaultEdgeStyle();
-    // style[mxConstants.STYLE_LABEL_BACKGROUNDCOLOR] = '#FFFFFF';
-    style[mxConstants.STYLE_STROKEWIDTH] = '1';
-    style[mxConstants.STYLE_ROUNDED] = true;
+    style[mxConstants.STYLE_STROKEWIDTH] = '2';
     style[mxConstants.STYLE_STROKECOLOR] = '#aaa';
-    style[mxConstants.STYLE_EDGE] =  'orthogonalEdgeStyle';//mxEdgeStyle.ElbowConnector;
+    style[mxConstants.STYLE_ROUNDED] = true;
+    style[mxConstants.STYLE_EDGE] =  mxEdgeStyle.ElbowConnector;
 
     ['process', 'state', 'end', 'defaultVertex', 'layoutBackground'].forEach(styleSheetStates);
 

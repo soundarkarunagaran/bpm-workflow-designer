@@ -13,7 +13,7 @@ var GraphEditor = React.createClass({
 			container: $dom
 		})
 		editor.render()
-
+		
 		/**
 		 * 1. 初始化 添加 节点拖拽事件 
 		 * 2. 缩略图 逻辑 

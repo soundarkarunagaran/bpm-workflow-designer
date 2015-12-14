@@ -4,7 +4,7 @@
 import React from 'react'
 import {Tree} from '../antd'
 import velocity from 'velocity-animate'
-
+var stencilsConfig = require('../stencils/config')
 var TreeNode = Tree.TreeNode
 
 var Sidebar = React.createClass({
@@ -66,28 +66,38 @@ var FlowList = React.createClass({
  */
 var Stencils = React.createClass({
 	render() {
+		var _this = this 
 		return (
 			<div className="stencils">
-				<div className="stencil-group">
+				 {stencilsConfig.groups.map((group) => {
+				 	return _this.renderGroup(group)
+				 })}
+			</div>
+		)
+	},
+	renderGroup(group) {
+		var _this = this
+		return (<div className="stencil-group" key={group.name}>
 					<div className="group-name">  
 						<a className="mbtn mbtn-circle mbtn-icon-only mbtn-small">
 							<i className="fa fa-minus"></i>
 						</a>
-						基础组件
+						{group.name}
 					</div>
-					<div className="stencil-list"></div>
-				</div>
-				<div className="stencil-group">
-					<div className="group-name">
-						<a className="mbtn mbtn-circle mbtn-icon-only mbtn-small">
-							<i className="fa fa-plus"></i>
-						</a>
-						业务组件
+					<div className="stencil-list">
+						<ul>
+							{group.stencils.map((it) => {
+								return _this.renderItem(it)
+							})}
+						</ul>
 					</div>
-					<div className="stencil-list"></div>
-				</div>
-			</div>
-		)
+				</div>)
+	},
+	renderItem(it) {
+		return (<li className="stencil-item" key={it.alias}>
+				<image src={it.image}/> <br/>
+				<label>{it.name}</label>
+			</li>)
 	}
 })
 
