@@ -4,7 +4,7 @@
 import React from 'react'
 import {Tree} from '../antd'
 import velocity from 'velocity-animate'
-var stencilsConfig = require('../stencils/config')
+var stencilsConfig = require('../graph-editor/stencils/config')
 var TreeNode = Tree.TreeNode
 
 var Sidebar = React.createClass({
@@ -94,7 +94,9 @@ var Stencils = React.createClass({
 				</div>)
 	},
 	renderItem(it) {
-		return (<li className="stencil-item" key={it.alias}>
+		var stencils = stencilsConfig.stencils
+		it = stencils[it]
+		return (<li className="stencil-item" key={it.alias} data-alias={it.alias}>
 				<image src={it.image}/> <br/>
 				<label>{it.name}</label>
 			</li>)

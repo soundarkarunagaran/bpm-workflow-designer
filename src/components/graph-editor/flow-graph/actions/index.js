@@ -2,7 +2,7 @@
  * editor actions
  */
 
-var addNode = require('./add-node')
+var addNode = require('./addNode')
 
 function initActions(diagram) {
 	var editor = diagram.editor

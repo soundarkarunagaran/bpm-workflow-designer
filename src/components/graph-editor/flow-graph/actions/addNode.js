@@ -1,6 +1,8 @@
 /**
  * add node handler
  */
+var createNode = require('../../stencils/createNode')
+
 function addNodeHandler(editor, cell) {
     var parent = graph.getDefaultParent();
     var model = graph.getModel();
@@ -86,64 +88,6 @@ function addNodeHandler(editor, cell) {
         model.endUpdate();
     }
     graph.setSelectionCell(v1);
-}
-
-
-/**
- * 返回需要节点xml标签
- * @param nodeType StartNode/EndNode/DecisionNode/ForkNode/JoinNode/Container/SubProcess/CustomNode
- * @returns xmlNode
- */
-function createNode(nodeType){
-    var doc = mxUtils.createXmlDocument();
-    var node;
-    switch(nodeType){
-        case "StartNode"   :node = doc.createElement("StartNode");
-                            node.setAttribute(NAME,"开始");
-                            node.setAttribute(TYPE,"start-state");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        case "EndNode"     :node = doc.createElement("EndNode");
-                            node.setAttribute(NAME,"结束");
-                            node.setAttribute(TYPE,"end-state");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        case "DecisionNode":node = doc.createElement("DecisionNode");
-                            node.setAttribute(NAME,"选择");
-                            node.setAttribute(TYPE,"decision");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        case "ForkNode"    :node = doc.createElement("ForkNode");
-                            node.setAttribute(NAME,"分支");
-                            node.setAttribute(TYPE,"fork");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        case "JoinNode"    :node = doc.createElement("JoinNode");
-                            node.setAttribute(NAME,"聚合");
-                            node.setAttribute(TYPE,"join");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        case "Container"   :node = doc.createElement("CustomNode");
-                            node.setAttribute(NAME,"容器");
-                            node.setAttribute(TYPE,"container");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        case "SubProcess"  :node = doc.createElement("CustomNode");
-                            node.setAttribute(NAME,"嵌套子流");
-                            node.setAttribute(TYPE,"sub-process");
-                            node.setAttribute(DATA,"{}");
-                            break;
-        default            :var comp = customNodeDef[nodeType];
-                            node = doc.createElement("CustomNode");
-                            node.setAttribute(CID,comp.componentId);
-                            node.setAttribute(NAME,comp.componentName);
-                            node.setAttribute(TYPE,comp.componentType);
-                            node.setAttribute(DATA,"{}");
-                            node.setAttribute(PATH,comp.pagePathName);
-                            break;
-    }
-    
-    return node;
 }
 
 module.exports = addNodeHandler

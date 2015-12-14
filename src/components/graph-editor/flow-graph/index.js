@@ -8,6 +8,16 @@ import Style from './style'
 
 var DEBUG_RENDER = true
 var initActions = require('./actions')
+var makeStencil = require('./makeStencil')
+var ATTIBUTE_NAMES = require('./attributeNames')
+
+var {
+    NAME,
+    TYPE,
+    DATA,
+    PATH,
+    CID
+} = ATTIBUTE_NAMES
 
 var {
 	mxConstants,
@@ -175,6 +185,18 @@ Diagram.prototype._init = function(config) {
 	
 }
 
+
+/**
+ * [clear description]
+ * @return {[type]} [description]
+ */
+Diagram.prototype.clear = function() {
+	var editor = this.editor,
+		graph = this.graph 
+	graph.getModel().clear() 
+	editor.undoManager.clear()
+}
+
 /**
  * [render 根据数据重新渲染所有节点]
  * @param  {[type]} nodes [description]
@@ -210,5 +232,13 @@ Diagram.prototype.initFormXML = function (xmlData){
 	var dec = new mxCodec(doc)
     dec.decode(doc.documentElement, graph.getModel())
 }
+
+Diagram.prototype.makeStencil = makeStencil
+
+/**
+ * [attributeNames description]
+ * @type {Object}
+ */
+Diagram.attributeNames = ATTIBUTE_NAMES
 
 module.exports = Diagram
