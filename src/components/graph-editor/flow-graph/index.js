@@ -91,7 +91,7 @@ Diagram.prototype._init = function(config) {
 		/** 启用拖放 */
 		graph.setDropEnabled(true)
 		/** 启用画布拖动 */
-		graph.setPanning(true)
+		graph.setPanning(false)
 		graph.panningHandler.useLeftButtonForPanning = true
 		/** 禁用tooltips */
 		graph.setTooltips(false)

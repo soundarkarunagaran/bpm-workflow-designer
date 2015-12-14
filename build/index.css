@@ -423,6 +423,9 @@
   margin-top: 4px;
   margin-right: 2px;
 }
+.app-header .menu-container .menu-list .menu-item.icon-up:active i {
+  color: #3e3e50;
+}
 .app-header .menu-container .menu-list .menu-item a:hover {
   color: #6A6B8A;
 }
@@ -622,6 +625,13 @@ hr {
 .app-container .app-header {
   height: 63px;
   padding-left: 0;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
 }
 .app-container .app-header .brand-logo-container {
   width: 240px;

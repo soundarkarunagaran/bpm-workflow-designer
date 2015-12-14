@@ -85,11 +85,12 @@ gulp.task("html", function() {
  * @param  {[type]} ) {               return gulp.src(['./src*.less'])      .pipe(less())      .on('error', function(err){       	console.log(err.message);       })      .pipe(rename(function(path){      	path.dirname [description]
  * @return {[type]}   [description]
  */
-gulp.task('styles', function() {
+gulp.task('styles', function(done) {
     return gulp.src(src.cssIndex)
       .pipe(less())
       .on('error', function(err){ 
       	console.log(err.message); 
+        done()
       })
       .pipe(rename(function(path){
       	path.dirname = path.dirname.replace('/less', '/css');

@@ -17,6 +17,13 @@ hr {
 	border: solid 1px whitesmoke;
 }
 
+.no-select() {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;  
+}
+
 /**
  * global variables
  */
@@ -40,6 +47,7 @@ hr {
 	.app-header {
 		height: @header-height;
 		padding-left: 0;
+		.no-select();
 		.brand-logo-container {
 			width: @sidebar-width;
 		}
