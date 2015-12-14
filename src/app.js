@@ -11,7 +11,7 @@ var SidebarRight = require('./components/sidebar-right')
 var App = React.createClass({
 	getInitialState() {
 		return {
-			test: 'tes'
+			test: 'tesz'
 		}
 	},
 	render() {

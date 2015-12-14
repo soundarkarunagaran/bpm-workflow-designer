@@ -103,28 +103,29 @@ gulp.task('styles', function() {
  * @param  {[type]} ) {                   var stream [description]
  * @return {[type]}   [description]
  */
-gulp.task('scripts', function() {
+gulp.task('scripts', function(done) {
+
     var stream = browserify({
       entries: './src/app.js',
       debug: true
-    })
-    .on('error', function(err) {
-      console.log(err)
     })
     .transform(babelify.configure({
       sourceMapRelative: path.resolve(__dirname, 'src')
     }))
     .bundle()
+    .on('error', function(err) {
+      console.log(err)
+      done()
+    })
     .pipe(source('bundle.js'))
     .pipe(rename('app.js'))
     .pipe(gulp.dest('./build/scripts/'))
     .on("end", reload)
-    return 
+    return stream
 })
 
 /**
  * [description live reload connect]
- * @param  {[type]} ) {             connect.server({    root: build.root,    livereload: true,    middleware: function(connect, opt) {      return [rest.rester({        context: "/"      })]    }  })} [description]
  * @return {[type]}   [description]
  */
 gulp.task("connect", function() {
@@ -136,7 +137,6 @@ gulp.task("connect", function() {
 
 /**
  * [gulp watch and reloaddescription]
- * @param  {[type]} ) {	livereload.listen()	gulp.watch(src.html, ['html'])	gulp.watch("src*.js", [""])} [description]
  * @return {[type]}   [description]
  */
 gulp.task("watch", function() {

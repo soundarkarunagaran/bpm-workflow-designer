@@ -7,6 +7,7 @@
 import Style from './style'
 
 var DEBUG_RENDER = true
+var initActions = require('./actions')
 
 var {
 	mxConstants,
@@ -48,8 +49,9 @@ Diagram.prototype._init = function(config) {
 	} 
 
 	globalSetting()
-	editorSetting()
-	addEventsAndActions()
+	initEditorAndGraph()
+	initEvents()
+	initActions(this)
 
 	/**
 	 * [全局设置]
@@ -77,15 +79,12 @@ Diagram.prototype._init = function(config) {
 	 * [创建容器]
 	 * @type {mxEditor}
 	 */
-	function editorSetting() {
+	function initEditorAndGraph() {
 		editor = _this.editor = new mxEditor(config)
 		editor.setGraphContainer(container)
 		graph = _this.graph = editor.graph
 		graphModel = _this.graphModel = graph.getModel()
 		
-		/** 设置快捷键配置 */
-		var keyhandlerConfig = mxUtils.load('assets/resources/keyhandler-commons.xml').getDocumentElement()
-		editor.configure(keyhandlerConfig)
 
 		/** 可编辑 */
 		graph.setEnabled(true)
@@ -144,7 +143,13 @@ Diagram.prototype._init = function(config) {
 		
     }
 
-    function addEventsAndActions () {
+    /**
+     * [initEvents  graph 事件响应]
+     */
+    function initEvents () {
+		/** 设置快捷键配置 */
+		var keyhandlerConfig = mxUtils.load('assets/resources/keyhandler-commons.xml').getDocumentElement()
+		editor.configure(keyhandlerConfig)
 
 	    /** 标签更改响应函数.更新 */
 	  	var cellLabelChanged = graph.cellLabelChanged

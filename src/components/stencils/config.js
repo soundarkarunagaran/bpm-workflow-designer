@@ -38,7 +38,7 @@ var config = {
             image: '/assets/images/component-api-icon.png'
         },  {
             name: '命令执行',
-            alias: 'script',
+            alias: 'command',
             image: '/assets/images/component-command-icon.png'
         }, {
             name: '脚本执行',
