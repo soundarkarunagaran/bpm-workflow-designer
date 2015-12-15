@@ -3,7 +3,7 @@
  * @param nodeType StartNode/EndNode/DecisionNode/ForkNode/JoinNode/Container/SubProcess/CustomNode
  * @returns xmlNode
  */
-var ATTIBUTE_NAMES = require('../flow-graph/attributeNames')
+var ATTIBUTE_NAMES = require('../attributeNames')
 var config = require('./config')
 var {
     NAME,
@@ -12,6 +12,7 @@ var {
     PATH,
     CID
 } = ATTIBUTE_NAMES
+
 module.exports = function createNode(nodeType) {
     var doc = mxUtils.createXmlDocument();
     var node;

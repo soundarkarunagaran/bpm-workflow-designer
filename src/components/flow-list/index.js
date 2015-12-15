@@ -11,24 +11,34 @@ var TreeNode = Tree.TreeNode
  */
 var FlowList = React.createClass({
 	render() {
+        var data = this.props.data
+        var flowList = data.flowList
 		return (
 			<div className="flow-list">
-				<Tree defaultExpandAll={false}
-		          openAnimation={animation}>
-    		        <TreeNode title="parent 1" key="p1">
-        		        <TreeNode key="p10" title="leaf"/>
-        		        <TreeNode title="parent 1-1" key="p11">
-        		            <TreeNode title="parent 2-1" key="p21">
-            		            <TreeNode title="leaf"/>
-            		            <TreeNode title="leaf"/>
-                            </TreeNode>
-            		        <TreeNode key="p22" title="leaf"/>
-        		        </TreeNode>
-        		    </TreeNode>
+				<Tree 
+                    defaultExpandAll={false}
+		            openAnimation={animation}>
+    		        {this.renderTreeNode(flowList)}
     		    </Tree>
 			</div>
 		)
-	}
+	},
+    renderTreeNode(node) {
+        if (!node) {
+            return null
+        }
+        var _this = this
+        var children = node.children
+        if (children && children.length > 0) {
+            return (<TreeNode title={node.name} key={node.id} expanded={true}>
+                        {children.map((node) => {
+                            return _this.renderTreeNode(node)
+                        })}
+                    </TreeNode>)
+        } else {
+            return <TreeNode title={node.name} key={node.id}/>
+        }
+    }
 })
 
 

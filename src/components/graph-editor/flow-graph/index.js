@@ -8,7 +8,7 @@ import Style from './style'
 
 var DEBUG_RENDER = true
 var initActions = require('./actions')
-var makeStencil = require('./makeStencil')
+var makeStencil = require('./stencils/makeStencil')
 var ATTIBUTE_NAMES = require('./attributeNames')
 
 var {

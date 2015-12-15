@@ -7,6 +7,7 @@ import Stencils from '../stencils'
 
 var Sidebar = React.createClass({
 	render() {
+		var data = this.props.data
 		return (
 			<sidebar className="app-sidebar-left">
 				<div className="menu-block ">
@@ -14,7 +15,7 @@ var Sidebar = React.createClass({
 						流程列表
 					</div>
 					<div className="menu-block-content">
-						<FlowList />
+						<FlowList data={data}/>
 					</div>
 				</div>
 				<div className="menu-block">

@@ -31,7 +31,7 @@ var App = React.createClass({
 		return (<div className="app-container"> 
 			<Header/>
 			<div className="app-body">
-				<SidebarLeft flowList={data.flowList}/>
+				<SidebarLeft data={data}/>
 				<Playground currentFlow={data.currentFlow}/>
 				<SidebarRight currentNode={data.currentNode}/>
 			</div>

@@ -1,13 +1,11 @@
+import createNode from './createNode'
+
 /**
- * makeStencil
+ * [makeStencil description]
+ * @param  {[type]} image    [description]
+ * @param  {[type]} nodeType [description]
+ * @return {[type]}          [description]
  */
-var createNode = require('../stencils/createNode')
-    /**
-     * [makeStencil description]
-     * @param  {[type]} image    [description]
-     * @param  {[type]} nodeType [description]
-     * @return {[type]}          [description]
-     */
 function makeStencil(img, dragEl, nodeType) {
     var graph = this.graph
     var node = createNode(nodeType)

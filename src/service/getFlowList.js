@@ -1,0 +1,410 @@
+/**
+ * [flow list service]
+ * @type {Array}
+ */
+var data = [{
+    id: '0',
+    pId: '',
+    name: '流程定义目录',
+    level: '0',
+    open: true
+}, {
+    id: 'public',
+    pId: '0',
+    name: '公用定义',
+    level: '1',
+    open: false
+}, {
+    id: '129',
+    pId: '0',
+    name: '应用监控管理平台',
+    level: '1',
+    open: false
+}, {
+    id: '9902457',
+    pId: '129',
+    name: '告警规则服务申请',
+    level: '2',
+    open: false
+}, {
+    id: '135',
+    pId: '0',
+    name: '云管理平台',
+    level: '1',
+    open: false
+}, {
+    id: '11304813',
+    pId: '135',
+    name: 'X86_RHEL_通用云服务V5_20141102',
+    level: '2',
+    open: false
+}, {
+    id: '11637610',
+    pId: '135',
+    name: 'VIOS自动化安装_1.4',
+    level: '2',
+    open: false
+}, {
+    id: '11695402',
+    pId: '135',
+    name: 'VIOS自动化安装_1.6',
+    level: '2',
+    open: false
+}, {
+    id: '11304629',
+    pId: '135',
+    name: 'x86_Weblogic_Install_V2.2_20141102',
+    level: '2',
+    open: false
+}, {
+    id: '6297755',
+    pId: '135',
+    name: 'F5负载均衡服务请求供给',
+    level: '2',
+    open: false
+}, {
+    id: '5489494',
+    pId: '135',
+    name: 'power供给-单机-V3_20141030',
+    level: '2',
+    open: false
+}, {
+    id: '7943481',
+    pId: '135',
+    name: 'power供给-RAC-V3_20141030',
+    level: '2',
+    open: false
+}, {
+    id: '7946481',
+    pId: '135',
+    name: 'power供给-HA-V4_20141030',
+    level: '2',
+    open: false
+}, {
+    id: '9495357',
+    pId: '135',
+    name: '虚拟机供给OA流程V2.0',
+    level: '2',
+    open: false
+}, {
+    id: '9495600',
+    pId: '135',
+    name: '虚拟机回收OA流程V2.0',
+    level: '2',
+    open: false
+}, {
+    id: '9495778',
+    pId: '135',
+    name: '物理机供给OA流程V3.0',
+    level: '2',
+    open: false
+}, {
+    id: '9496809',
+    pId: '135',
+    name: '存储供给OA流程V1.0',
+    level: '2',
+    open: false
+}, {
+    id: '11430537',
+    pId: '135',
+    name: 'RAC_AIX_V6.1_20141030',
+    level: '2',
+    open: false
+}, {
+    id: '10551400',
+    pId: '135',
+    name: '虚拟机CPU内存扩容',
+    level: '2',
+    open: false
+}, {
+    id: '11256023',
+    pId: '135',
+    name: '部署单元服务申请OA流程',
+    level: '2',
+    open: false
+}, {
+    id: '11733807',
+    pId: '135',
+    name: 'X86_RHEL通用云服务V4_20141102(1期)',
+    level: '2',
+    open: false
+}, {
+    id: '11733808',
+    pId: '135',
+    name: 'X86_WEBLOGIC通用云服务V4_20141102(1期)',
+    level: '2',
+    open: false
+}, {
+    id: '7947687',
+    pId: 'public',
+    name: 'HP物理机安装流程图v3.2_20140508',
+    level: '2',
+    open: false
+}, {
+    id: '8028319',
+    pId: 'public',
+    name: 'X86物理机安装_0425',
+    level: '2',
+    open: false
+}, {
+    id: '7947345',
+    pId: 'public',
+    name: 'AIX物理机安装v3.5_20140425',
+    level: '2',
+    open: false
+}, {
+    id: '7946424',
+    pId: 'public',
+    name: '物理机供给OA流程V1.0',
+    level: '2',
+    open: false
+}, {
+    id: '8176784',
+    pId: 'public',
+    name: '南湖power供给-RAC-V3_20140506',
+    level: '2',
+    open: false
+}, {
+    id: '5352766',
+    pId: 'public',
+    name: '云服务供给',
+    level: '2',
+    open: false
+}, {
+    id: '5408837',
+    pId: 'public',
+    name: 'power供给-RAC-V2',
+    level: '2',
+    open: false
+}, {
+    id: '5402000',
+    pId: 'public',
+    name: 'power虚拟机回收',
+    level: '2',
+    open: false
+}, {
+    id: '5464722',
+    pId: 'public',
+    name: 'x86_RHEL通用云服务V2',
+    level: '2',
+    open: false
+}, {
+    id: '5368000',
+    pId: 'public',
+    name: '云服务回收',
+    level: '2',
+    open: false
+}, {
+    id: '5407277',
+    pId: 'public',
+    name: 'x86_weblogic通用云服务V2',
+    level: '2',
+    open: false
+}, {
+    id: '5401983',
+    pId: 'public',
+    name: 'x86回收',
+    level: '2',
+    open: false
+}, {
+    id: '5479552',
+    pId: 'public',
+    name: 'x86_window_通用云服务V3_20140409',
+    level: '2',
+    open: false
+}, {
+    id: '7947670',
+    pId: 'public',
+    name: 'power虚拟机回收_V2_20140425',
+    level: '2',
+    open: false
+}, {
+    id: '5489773',
+    pId: 'public',
+    name: 'power供给-HA-V2',
+    level: '2',
+    open: false
+}, {
+    id: '2112',
+    pId: 'public',
+    name: 'WINDOWS_INSTALL',
+    level: '2',
+    open: false
+}, {
+    id: '1491',
+    pId: 'public',
+    name: 'AIX_SINGLE_V1',
+    level: '2',
+    open: false
+}, {
+    id: '1692',
+    pId: 'public',
+    name: 'RHEL_INSTALL',
+    level: '2',
+    open: false
+}, {
+    id: '1599',
+    pId: 'public',
+    name: 'PASS_RHEL_Apache_Tuxedo',
+    level: '2',
+    open: false
+}, {
+    id: '1525',
+    pId: 'public',
+    name: 'AIX_SINGLE_STORAGE_V1',
+    level: '2',
+    open: false
+}, {
+    id: '1104',
+    pId: 'public',
+    name: 'AIX_RAC_V2',
+    level: '2',
+    open: false
+}, {
+    id: '2084',
+    pId: 'public',
+    name: 'WINDOWS_INSTALL',
+    level: '2',
+    open: false
+}, {
+    id: '1625',
+    pId: 'public',
+    name: 'AIX_RAC_V3',
+    level: '2',
+    open: false
+}, {
+    id: '8028315',
+    pId: 'public',
+    name: 'X86物理机安装_单节点_0425',
+    level: '2',
+    open: false
+}, {
+    id: '7942775',
+    pId: 'public',
+    name: 'X86_RHEL通用云服务V3_20140528',
+    level: '2',
+    open: false
+}, {
+    id: '7943133',
+    pId: 'public',
+    name: 'X86_WINDOWS通用云服务V3_20140425-2',
+    level: '2',
+    open: false
+}, {
+    id: '7943163',
+    pId: 'public',
+    name: 'X86_WEBLOGIC通用云服务V3_20140528',
+    level: '2',
+    open: false
+}, {
+    id: '10545577',
+    pId: 'public',
+    name: 'X86虚拟机扩容_V1.7',
+    level: '2',
+    open: false
+}, {
+    id: '11280012',
+    pId: 'public',
+    name: 'Power_VIOC_Change_vCpu_memory_v1.3',
+    level: '2',
+    open: false
+}, {
+    id: '1419',
+    pId: 'public',
+    name: 'weblogicInstall',
+    level: '2',
+    open: false
+}, {
+    id: '11116742',
+    pId: 'public',
+    name: 'X86_RHEL通用云服务V4_20140829',
+    level: '2',
+    open: false
+}, {
+    id: '11117154',
+    pId: 'public',
+    name: 'X86_RHEL_TUXEDO云服务V4_20140829_2',
+    level: '2',
+    open: false
+}, {
+    id: '10545005',
+    pId: 'public',
+    name: 'Power_VIOC_Change_vCpu_memory_v1.1',
+    level: '2',
+    open: false
+}, {
+    id: '11946900',
+    pId: 'public',
+    name: 'tes1jfo',
+    level: '2',
+    open: false
+}, {
+    id: '11938953',
+    pId: 'public',
+    name: 'aksdfjsd',
+    level: '2',
+    open: false
+}, {
+    id: '11941213',
+    pId: 'public',
+    name: '111s',
+    level: '2',
+    open: false
+}, {
+    id: '11938928',
+    pId: 'public',
+    name: 'test',
+    level: '2',
+    open: false
+}, {
+    id: '1622',
+    pId: 'public',
+    name: 'AIX_SINGLE_V2',
+    level: '2',
+    open: false
+}, {
+    id: '1623',
+    pId: 'public',
+    name: 'AIX_SINGLE_V2',
+    level: '2',
+    open: false
+}, {
+    id: '2125',
+    pId: 'public',
+    name: '虚拟机回收',
+    level: '2',
+    open: false
+}, {
+    id: '1856',
+    pId: 'public',
+    name: 'AIX_HA_V1',
+    level: '2',
+    open: false
+}, {
+    id: '10544554',
+    pId: 'public',
+    name: 'Power_VIOS_Insatll_v1.0',
+    level: '2',
+    open: false
+}]
+
+function parseAsTree() {
+    var hash = {}
+    var rootId = '0'
+
+    data.forEach(function(it) {
+        hash[it.id] = it
+    })
+
+    data.forEach(function(it) {
+        var pId = it.pId
+        if (!pId) {return}
+        var parent = hash[pId]
+        parent.children = parent.children || []
+        parent.children.push(it)
+    })
+
+    return hash[rootId]
+}
+
+module.exports = parseAsTree

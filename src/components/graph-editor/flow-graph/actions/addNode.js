@@ -1,7 +1,7 @@
 /**
  * add node handler
  */
-var createNode = require('../../stencils/createNode')
+var createNode = require('../stencils/createNode')
 
 function addNodeHandler(editor, cell) {
     var parent = graph.getDefaultParent();

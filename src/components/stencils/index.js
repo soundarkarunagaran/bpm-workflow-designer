@@ -1,6 +1,6 @@
 import React from 'react'
 import velocity from 'velocity-animate'
-var stencilsConfig = require('../graph-editor/stencils/config')
+var stencilsConfig = require('../graph-editor/flow-graph/stencils/config')
 
 /**
  * [Stencils description]
