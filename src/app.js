@@ -8,22 +8,35 @@ var SidebarLeft = require('./components/sidebar-left')
 var Playground = require('./components/playground')
 var SidebarRight = require('./components/sidebar-right')
 
+var Fluxxor = require('fluxxor')
+var AppStore = require('./store')
+var AppAction = require('./action')
+var flux = new Fluxxor.Flux({
+	    AppStore: new AppStore()
+	}, AppAction)
+
 var App = React.createClass({
+	mixins: [Fluxxor.FluxMixin(React), Fluxxor.StoreWatchMixin("AppStore")],
+	getStateFromFlux() {
+        var flux = this.getFlux()
+        return flux.store('AppStore').getState()
+    },
 	getInitialState() {
 		return {
 			test: 'tesz'
 		}
 	},
 	render() {
+		var data = this.state 
 		return (<div className="app-container"> 
 			<Header/>
 			<div className="app-body">
-				<SidebarLeft />
-				<Playground />
-				<SidebarRight />
+				<SidebarLeft flowList={data.flowList}/>
+				<Playground currentFlow={data.currentFlow}/>
+				<SidebarRight currentNode={data.currentNode}/>
 			</div>
 		</div>)
 	}
 })
 
-ReactDOM.render(<App/>, document.getElementById('App'))
+ReactDOM.render(<App flux={flux}/>, document.getElementById('App'))
