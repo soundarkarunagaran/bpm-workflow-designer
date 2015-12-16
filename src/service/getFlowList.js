@@ -404,7 +404,10 @@ function parseAsTree() {
         parent.children.push(it)
     })
 
-    return hash[rootId]
+    return {
+        hash,
+        rootId
+    }
 }
 
 module.exports = parseAsTree

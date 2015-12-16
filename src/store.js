@@ -12,13 +12,26 @@ var Store = Fluxxor.createStore({
 			loading: true
 		}
 		this.loadPageData()
+		this.bindActions('change-flow', this.changeFlow)
 	},
 	getState: function() {
-		return this.data
+		var d = this.data
+		return {
+			flowList: d.flowList,
+			loading: d.loading,
+			currentFlow: d.currentFlow
+		}
 	},
 	loadPageData: function() {
 		this.data.flowList = service.getFlowList()
 		this.data.loading = false
+		this.emit('change')
+	},
+	changeFlow: function(data) {
+		this.data.currentFlow = {
+			meta: data.flow,
+			data: service.getFlow()
+		}
 		this.emit('change')
 	}
 

@@ -158,7 +158,7 @@ Diagram.prototype._init = function(config) {
      */
     function initEvents () {
 		/** 设置快捷键配置 */
-		var keyhandlerConfig = mxUtils.load('assets/resources/keyhandler-commons.xml').getDocumentElement()
+		var keyhandlerConfig = mxUtils.load('/lib/mxgraph/resources/keyhandler-commons.xml').getDocumentElement()
 		editor.configure(keyhandlerConfig)
 
 	    /** 标签更改响应函数.更新 */
@@ -198,25 +198,23 @@ Diagram.prototype.clear = function() {
 }
 
 /**
- * [render 根据数据重新渲染所有节点]
+ * [update 根据数据重新渲染所有节点]
  * @param  {[type]} nodes [description]
  * @return {[type]}       [description]
  */
-Diagram.prototype.render = function(data) {
-	var graph = this.graph
-	var graphModel = this.graphModel
-	var root  = graph.getDefaultParent()
-	graphModel.beginUpdate()
-	try {
-		insertVertex(root, 'asd', 'asd', 100, 100, 100, 50, 'process')
-		insertVertex(root, 'asd', 'asd', 300, 100, 100, 50, 'process')
-		insertVertex(root, 'asd', 'asd', 100, 300, 100, 50, 'process')
-	} finally {
-		graphModel.endUpdate()
-	}
-	function insertVertex(parent, id, value, x, y, width, height, style, relative) {
-		return graph.insertVertex(parent, id, value, x, y, width, height, style, relative)
-	}
+Diagram.prototype.update = function(data) {
+	this.initFormXML(data.data.iconxml)
+	// graphModel.beginUpdate()
+	// try {
+	// 	insertVertex(root, 'asd', 'asd', 100, 100, 100, 50, 'process')
+	// 	insertVertex(root, 'asd', 'asd', 300, 100, 100, 50, 'process')
+	// 	insertVertex(root, 'asd', 'asd', 100, 300, 100, 50, 'process')
+	// } finally {
+	// 	graphModel.endUpdate()
+	// }
+	// function insertVertex(parent, id, value, x, y, width, height, style, relative) {
+	// 	return graph.insertVertex(parent, id, value, x, y, width, height, style, relative)
+	// }
 }
 
 /**
@@ -226,7 +224,7 @@ Diagram.prototype.render = function(data) {
  */
 Diagram.prototype.initFormXML = function (xmlData){
 	/** 初始化流程图 */
-	xmlData = xmlData || '<?xml version="1.0" encoding="UTF-8"?><mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="flow0" source="start" target="receiveTask0" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><mxCell id="flow1" source="receiveTask0" target="receiveTask1" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><mxCell id="flow2" source="receiveTask1" target="receiveTask2" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><mxCell id="flow3" source="receiveTask2" target="end" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><StartNode id="start" Name="Start" Type="start-state" nodeId="start"><mxCell parent="1" style="image=./images/start.png" vertex="1"><mxGeometry as="geometry" x="0.0" y="0.0" width="64" height="64"/></mxCell></StartNode><CustomNode id="receiveTask2" Name="configChange2" Path="222" Type="111" ComponentId="2" nodeId="d7b340f5-cbaa-403d-8724-a24f5bb206f7"><mxCell parent="1" style="image=./images/recieve.png" vertex="1"><mxGeometry as="geometry" x="380.0" y="0.0" width="64" height="64"/></mxCell></CustomNode><CustomNode id="receiveTask1" Name="puppetChange1" Path="222" Type="111" ComponentId="1" nodeId="dd6b5e3d-1649-4934-bbb7-eb82a9a93ae4"><mxCell parent="1" style="image=./images/recieve.png" vertex="1"><mxGeometry as="geometry" x="230.0" y="0.0" width="64" height="64"/></mxCell></CustomNode><CustomNode id="receiveTask0" Name="puppetChange0" Path="222" Type="111" ComponentId="1" nodeId="8cbddaba-7090-428b-8098-5bfe0323bb97"><mxCell parent="1" style="image=./images/recieve.png" vertex="1"><mxGeometry as="geometry" x="80.0" y="0.0" width="64" height="64"/></mxCell></CustomNode><EndNode id="end" Name="End" Type="end-state" nodeId="end"><mxCell parent="1" style="image=./images/end.png" vertex="1"><mxGeometry as="geometry" x="530.0" y="0.0" width="64" height="64"/></mxCell></EndNode></root></mxGraphModel>'
+	xmlData = xmlData || '<?xml version="1.0" encoding="UTF-8"?><mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="flow0" source="start" target="receiveTask0" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><mxCell id="flow1" source="receiveTask0" target="receiveTask1" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><mxCell id="flow2" source="receiveTask1" target="receiveTask2" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><mxCell id="flow3" source="receiveTask2" target="end" edge="1" value="" parent="1"><mxGeometry as="geometry" relative="1"/></mxCell><StartNode id="start" Name="Start" Type="start-state" nodeId="start"><mxCell parent="1" style="image=/assets/images/component-start-icon.png" vertex="1"><mxGeometry as="geometry" x="0.0" y="0.0" width="64" height="64"/></mxCell></StartNode><CustomNode id="receiveTask2" Name="configChange2" Path="222" Type="111" ComponentId="2" nodeId="d7b340f5-cbaa-403d-8724-a24f5bb206f7"><mxCell parent="1" style="image=/assets/images/recieve.png" vertex="1"><mxGeometry as="geometry" x="380.0" y="0.0" width="64" height="64"/></mxCell></CustomNode><CustomNode id="receiveTask1" Name="puppetChange1" Path="222" Type="111" ComponentId="1" nodeId="dd6b5e3d-1649-4934-bbb7-eb82a9a93ae4"><mxCell parent="1" style="image=/assets/images/recieve.png" vertex="1"><mxGeometry as="geometry" x="230.0" y="0.0" width="64" height="64"/></mxCell></CustomNode><CustomNode id="receiveTask0" Name="puppetChange0" Path="222" Type="111" ComponentId="1" nodeId="8cbddaba-7090-428b-8098-5bfe0323bb97"><mxCell parent="1" style="image=/assets/images/recieve.png" vertex="1"><mxGeometry as="geometry" x="80.0" y="0.0" width="64" height="64"/></mxCell></CustomNode><EndNode id="end" Name="End" Type="end-state" nodeId="end"><mxCell parent="1" style="image=/assets/images/component-end-icon.png" vertex="1"><mxGeometry as="geometry" x="530.0" y="0.0" width="64" height="64"/></mxCell></EndNode></root></mxGraphModel>'
 	var graph = this.graph
 	var doc = mxUtils.parseXml(xmlData)
 	var dec = new mxCodec(doc)

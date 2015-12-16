@@ -12,7 +12,7 @@ var antd = {
   // Tooltip: require('antd/lib/tooltip'),
   // Carousel: require('antd/lib/carousel'),
   // Tabs: require('antd/lib/tabs'),
-  // Modal: require('antd/lib/modal'),
+  Modal: require('antd/lib/modal'),
   // Dropdown: require('antd/lib/dropdown'),
   // Progress: require('antd/lib/progress'),
   // Popover: require('antd/lib/popover'),

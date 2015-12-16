@@ -8,7 +8,7 @@ var Playground = React.createClass({
 	render() {
 		return (
 			<section className="app-playground">
-				<GraphEditor/>
+				<GraphEditor currentFlow={this.props.currentFlow}/>
 			</section>
 		)
 	}

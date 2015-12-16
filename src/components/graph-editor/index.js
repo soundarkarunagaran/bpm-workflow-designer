@@ -7,12 +7,22 @@ var ReactDOM = require('react-dom')
 var FlowGraph = require('./flow-graph')
 
 var GraphEditor = React.createClass({
+	componentWillReceiveProps(props) {
+		this.flowGraph.update(props.currentFlow)
+	},
+	shouldComponentUpdate(nextProps, nextState) {
+		return false
+	},
 	componentDidMount() {
+		var currentFlow = this.props.currentFlow 
 		var $dom = ReactDOM.findDOMNode(this)
-		var flowGraph = new FlowGraph({
-			container: $dom
+
+		var flowGraph = this.flowGraph = new FlowGraph({
+			container: $dom,
+			currentFlow: currentFlow
 		})
-		flowGraph.render()
+
+		// flowGraph.render()
 		
 		/**
 		 * 根据工具栏 操作 添加 actions
@@ -44,16 +54,13 @@ var GraphEditor = React.createClass({
 		})
 		
 	},
-	showModal() {
-		// 模态框显示
-	},
 	render() {
 		return (
 			<div className="graph-editor" style={{
 				height: '100%',
-				width: '100%'
+				width: '100%',
+				overflow: 'scroll'
 			}}>
-
 			</div>
 		)
 	}
