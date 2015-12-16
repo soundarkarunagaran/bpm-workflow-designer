@@ -39,6 +39,15 @@
 .app-sidebar-left .menu-block .menu-block-title {
   background: #383C5F;
   padding: 6px 15px;
+  position: relative;
+}
+.app-sidebar-left .menu-block .menu-block-title > button {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  background: none;
+  border: none;
+  color: white;
 }
 .app-sidebar-left .menu-block .menu-block-content {
   position: absolute;
@@ -512,4 +521,33 @@ hr {
   bottom: 0;
   width: 240px;
   background: #415B72;
+}
+/*
+暂时去除modal-dialog的内容,因为没有支持大模态框和小模态框.
+.modal-dialog {
+    width: 600px;
+    margin: 16% auto;
+}
+*/
+:-webkit-any(select.form-control) {
+  -webkit-appearance: none;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAFCAMAAACdH1c/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFRUpR////m74sLQAAAAJ0Uk5T/wDltzBKAAAAJklEQVR42mJgYAQDKAUFDAwMEApVFCyAJsgIFkIXBJuHIcgIEGAAEyUAWsvQ8r0AAAAASUVORK5CYII=);
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.07);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-width: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(106, 106, 106, 0.52);
+  -webkit-box-shadow: inset 0 0 4px rgba(173, 173, 173, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 0, 0, 0.4);
 }
