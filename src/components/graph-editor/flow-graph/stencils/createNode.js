@@ -47,7 +47,7 @@ module.exports = function createNode(nodeType) {
             node.setAttribute(TYPE, "join");
             node.setAttribute(DATA, "{}");
             break;
-        case "container":
+        case "Container":
             node = doc.createElement("CustomNode");
             node.setAttribute(NAME, "容器");
             node.setAttribute(TYPE, "container");
@@ -62,9 +62,9 @@ module.exports = function createNode(nodeType) {
         default:
             var comp = config.stencils[nodeType];
             node = doc.createElement("CustomNode");
-            node.setAttribute(CID, comp.componentId);
-            node.setAttribute(NAME, comp.componentName);
-            node.setAttribute(TYPE, comp.componentType);
+            node.setAttribute(CID, comp.alias);
+            node.setAttribute(NAME, comp.name);
+            node.setAttribute(TYPE, comp.alias);
             node.setAttribute(DATA, "{}");
             node.setAttribute(PATH, comp.pagePathName);
             break;

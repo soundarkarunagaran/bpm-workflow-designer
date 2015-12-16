@@ -31,6 +31,10 @@ var GraphEditor = React.createClass({
 			var $target = $(this)
 			var action = $target.attr('data-action')
 			flowGraph.editor.execute(action)	
+			// if (action === 'group') {
+			// 	var cells = flowGraph.graph.getSelectionCells()
+			// 	flowGraph.graph.setCellStyle('group', cells)
+			// }
 		})
 
 		/**

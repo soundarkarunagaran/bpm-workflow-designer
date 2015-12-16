@@ -9,6 +9,7 @@ import Style from './style'
 var DEBUG_RENDER = true
 var initActions = require('./actions')
 var makeStencil = require('./stencils/makeStencil')
+var createNode = require('./stencils/createNode')
 var ATTIBUTE_NAMES = require('./attributeNames')
 
 var {
@@ -94,7 +95,6 @@ Diagram.prototype._init = function(config) {
 		editor.setGraphContainer(container)
 		graph = _this.graph = editor.graph
 		graphModel = _this.graphModel = graph.getModel()
-		
 
 		/** 可编辑 */
 		graph.setEnabled(true)
@@ -110,11 +110,21 @@ Diagram.prototype._init = function(config) {
 		/** 不允许无终点边 */
 		graph.setAllowDanglingEdges(false)
 
-		graph.setHtmlLabels(true)
+		// graph.setHtmlLabels(true)
 		/** 设置流程图样式 */
 		Style.configureStylesheet(graph)
 
 		new mxRubberband(graph)
+
+		/** 定义默认组用于分组，同时也用于侧边栏容器按钮 */
+		var containerNode = createNode("Container");
+		
+		var group = new mxCell(containerNode, new mxGeometry(), 'group');
+		group.setVertex(true);
+		group.geometry.alternateBounds = new mxRectangle(0, 0, 50, 30);
+		editor.defaultGroup = group;
+		editor.groupBorderSize = 20;
+
 
 		/** 连接指示图 */
 		graph.connectionHandler.getConnectImage = function(state){

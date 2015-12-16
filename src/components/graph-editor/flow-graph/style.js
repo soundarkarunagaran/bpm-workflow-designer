@@ -60,7 +60,10 @@ function getDynamicStyle(cell, defaultStyle) {
  *  usage 
  *  model.setStyle(vertex, 'styleName')
  */
-function configureStylesheet(graph) {
+/**
+ * 配置样式
+ */
+function configureStylesheet(graph){
     /** 定义默认节点样式 */
     var style = new Object();
     style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_LABEL;
@@ -69,7 +72,7 @@ function configureStylesheet(graph) {
     style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
     style[mxConstants.STYLE_IMAGE_ALIGN] = mxConstants.ALIGN_CENTER;
     style[mxConstants.STYLE_IMAGE_VERTICAL_ALIGN] = mxConstants.ALIGN_TOP;
-    style[mxConstants.STYLE_SPACING_TOP] = '50';
+    style[mxConstants.STYLE_SPACING_TOP] = '58';
     style[mxConstants.STYLE_FONTCOLOR] = '#1d258f';
     style[mxConstants.STYLE_FONTFAMILY] = '微软雅黑';
     style[mxConstants.STYLE_FONTSIZE] = '12';
@@ -114,7 +117,8 @@ function configureStylesheet(graph) {
     style[mxConstants.STYLE_LABEL_BACKGROUNDCOLOR] = '#FFFFFF';
     style[mxConstants.STYLE_STROKEWIDTH] = '2';
     style[mxConstants.STYLE_ROUNDED] = true;
-    style[mxConstants.STYLE_EDGE] = mxEdgeStyle.ElbowConnector;   
+    style[mxConstants.STYLE_EDGE] = mxEdgeStyle.ElbowConnector;
+    window.graph = graph
 }
 
 export default {
